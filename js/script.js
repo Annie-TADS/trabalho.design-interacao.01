@@ -38,6 +38,19 @@ function openEditor(nomeEditor) {
             editores[i].classList.remove("hidden");
         }
     }
+    
+    const tituloEditor = document.getElementById('modalEdicaoLabel');
+    switch (nomeEditor) {
+        case "texto":
+            tituloEditor.textContent = "Editar Texto";
+            break;
+        case "cor":
+            tituloEditor.textContent = "Editar Cores";
+            break;
+        case "Formato":
+            tituloEditar.textContent = "Editar Formato";
+            break;
+    }
 }
 
 function closeEditor() {
