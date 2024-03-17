@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Cartões</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="modal fade" id="modalEdicao" tabindex="-1" role="dialog" aria-labelledby="modalEdicaoLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-between">
+                        <h5 class="modal-title" id="modalEdicaoLabel">Título do Modal</h5>
+                        <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal" aria-label="Close"
+                            onclick="closeEditor()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="cardForm">
+                            <div class="editores hidden" id="texto">
+                                <label for="textoCartao">Texto do cartão:</label><br>
+                                <textarea id="textoCartao" name="textoCartao"></textarea><br><br>
+
+                                <label for="tamanhoFonte">Tamanho da Fonte:</label><br>
+                                <input type="number" id="tamanhoFonte" name="tamanhoFonte" value="18" max="50"
+                                    min="1"><br><br>
+                            </div>
+
+                            <div class="editores hidden" id="cor">
+                                <label for="backgroundColor">Cor de Fundo:</label>
+                                <input type="color" id="backgroundColor" name="backgroundColor" value="#FFFFFF"><br><br>
+
+                                <label for="textColor">Cor do Texto:</label>
+                                <input type="color" id="textColor" name="textColor"><br><br>
+                            </div>
+
+                            <div class="editores hidden" id="formato">
+                                <label for="alturaCartao">Altura:</label><br>
+                                <input type="number" id="alturaCartao" name="alturaCartao" value="200" max="450"
+                                    min="10"><br><br>
+
+                                <label for="larguraCartao">Largura:</label><br>
+                                <input type="number" id="larguraCartao" name="larguraCartao" value="300" max="450"
+                                    min="10"><br><br>
+
+                                <label for="arrendondamentoBorda">Arredondamento na Borda:</label><br>
+                                <input type="number" id="arrendondamentoBorda" name="arrendondamentoBorda" value="5"
+                                    max="100" min="0"><br><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-auto bg-light sticky-top">
+                <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+                    <ul
+                        class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                        <li>
+                            <div class="py-3 px-2" title="Texto" data-bs-toggle="modal" data-bs-placement="right"
+                                data-bs-original-title="Texto" data-bs-target="#modalEdicao"
+                                onclick="openEditor('texto')">
+                                <i class="bi-fonts fs-1"></i>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="py-3 px-2" title="Cores" data-bs-toggle="modal" data-bs-placement="right"
+                                data-bs-original-title="Cores" data-bs-target="#modalEdicao"
+                                onclick="openEditor('cor')">
+                                <i class="bi bi-palette fs-1"></i>
+                                </div>
+                        </li>
+                        <li>
+                            <div class="py-3 px-2" title="Formato" data-bs-toggle="modal" data-bs-placement="right"
+                                data-bs-original-title="Formato" data-bs-target="#modalEdicao"
+                                onclick="openEditor('formato')">
+                                <i class="bi bi-fullscreen fs-1"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm p-3 min-vh-100 d-flex justify-content-center align-items-center">
+                <div id="card">
+                    <div id="card-content">
+                        <pre id="card-text"></pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
